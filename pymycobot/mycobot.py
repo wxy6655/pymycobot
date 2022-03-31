@@ -56,7 +56,7 @@ class MyCobot(MyCobotCommandGenerator):
         super(MyCobot, self).__init__(debug)
         self.calibration_parameters = calibration_parameters
         import serial
-        self._serial_port = serial.Serial(port, baudrate, timeout=timeout)
+        self._serial_port = serial.Serial(port, baudrate, bytesize=8, parity='N', stopbits=1, timeout=timeout, xonxoff=0, rtscts=1)
 
     _write = write
     _read = read
